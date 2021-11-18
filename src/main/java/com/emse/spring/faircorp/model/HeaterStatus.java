@@ -1,2 +1,3 @@
-package com.emse.spring.faircorp.model;public class HeaterStatus {
-}
+package com.emse.spring.faircorp.model;
+
+public enum HeaterStatus { ON, OFF}
