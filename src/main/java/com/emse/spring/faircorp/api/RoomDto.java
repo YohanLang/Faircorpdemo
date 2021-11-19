@@ -15,6 +15,8 @@ public  class RoomDto {
     private Double targetTemperature;
     private Set<Long> windowId;
     private Set<Long> heaterId;
+    private Long buildingId;
+    private String buildingName;
 
     public RoomDto() {
     }
@@ -25,14 +27,8 @@ public  class RoomDto {
         this.floor=room.getFloor();
         this.currentTemperature=room.getCurrentTemperature();
         this.targetTemperature=room.getTargetTemperature();
-        /*
-        for (Heater h : room.getHeater()){
-            this.heaterId.add(h.getId());
-        }
-        for (Window w : room.getWindow()){
-            this.windowId.add(w.getId());
-        }*/
-
+        this.buildingId=room.getBuilding().getId();
+        this.buildingName=room.getBuilding().getName();
     }
 
     public Long getId() {
@@ -58,20 +54,19 @@ public  class RoomDto {
     public void setFloor(int floor) {
         this.floor = floor;
     }
-/*
-    public Set<Long> getHeaterId() {
-        return heaterId;
+    public String getBuildingName() {
+        return buildingName;
     }
 
-    public void setHeaterId(Set<Long> heater) {
-        this.heaterId = heater;
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
     }
 
-    public Set<Long> getWindowId() {
-        return windowId;
+    public Long getBuildingId() {
+        return buildingId;
     }
 
-    public void setWindowId(Set<Long> window) {
-        this.windowId = window;
-    }*/
+    public void setBuildingId(Long roomId) {
+        this.buildingId = buildingId;
+    }
 }
