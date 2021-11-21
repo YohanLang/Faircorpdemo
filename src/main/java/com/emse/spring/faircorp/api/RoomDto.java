@@ -13,9 +13,7 @@ public class RoomDto {
 
     public RoomDto() {
     }
-    public RoomDto(Long id) {
-        this.id=id;
-    }
+
 
     public RoomDto(Room room){
         this.id = room.getId();
