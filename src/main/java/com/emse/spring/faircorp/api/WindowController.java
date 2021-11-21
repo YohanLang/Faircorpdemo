@@ -25,7 +25,7 @@ public class WindowController {
         this.roomDao = roomDao;
     }
 
-    @GetMapping // (5)
+    @GetMapping
     public List<WindowDto> findAll() {
         return windowDao.findAll().stream().map(WindowDto::new).collect(Collectors.toList());  // (6)
     }
@@ -42,7 +42,7 @@ public class WindowController {
         return new WindowDto(window);
     }
 
-    @PostMapping // (8)
+    @PostMapping(path = "/create")
     public WindowDto create(@RequestBody WindowDto dto) {
         // WindowDto must always contain the window room
         Room room = roomDao.getById(dto.getRoomId());
@@ -57,7 +57,7 @@ public class WindowController {
         return new WindowDto(window);
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}/delete")
     public void delete(@PathVariable Long id) {
         windowDao.deleteById(id);
     }

@@ -18,13 +18,11 @@ public class Room {
     @Column(nullable = false)
     private String name;
 
-    @Column
+    @Column(name="CURRENTTEMPERATURE")
     private Double currentTemperature;
 
-    @Column
+    @Column(name="TARGETTEMPERATURE")
     private Double targetTemperature;
-    @ManyToOne
-    private Building building;
 
     @OneToMany(mappedBy = "room")
     private Set<Heater> heater;
@@ -32,14 +30,16 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<Window> window;
 
+    @ManyToOne
+    private Building building;
+
     public Room() {
     }
 
     public Room(int floor, String name, Building building) {
         this.floor = floor;
         this.name = name;
-        this.building=building;
-
+        this.building = building;
     }
 
     public Long getId() {
@@ -97,8 +97,9 @@ public class Room {
     public void setWindow(Set<Window> window) {
         this.window = window;
     }
+
     public Building getBuilding() {
-        return building;
+        return this.building;
     }
 
     public void setBuilding(Building building) {

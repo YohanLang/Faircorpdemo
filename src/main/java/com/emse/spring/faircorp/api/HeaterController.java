@@ -2,9 +2,7 @@ package com.emse.spring.faircorp.api;
 
 import com.emse.spring.faircorp.dao.HeaterDao;
 import com.emse.spring.faircorp.dao.RoomDao;
-import com.emse.spring.faircorp.model.Heater;
-import com.emse.spring.faircorp.model.Room;
-import com.emse.spring.faircorp.model.Window;
+import com.emse.spring.faircorp.model.*;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +29,12 @@ public class HeaterController {
         return heaterdao.findById(id).map(HeaterDto::new).orElse(null);
 
     }
+    @PutMapping(path = "/{id}/switch")
+    public HeaterDto switchStatus(@PathVariable Long id) {
+        Heater heater = heaterdao.findById(id).orElseThrow(IllegalArgumentException::new);
+        heater.setStatus(heater.getStatus() == HeaterStatus.ON ? HeaterStatus.OFF : HeaterStatus.ON);
+        return new HeaterDto(heater);
+    }
     @PostMapping
     public HeaterDto create(@RequestBody HeaterDto dto) {
         Room room = roomdao.getById(dto.getRoomId());
@@ -45,7 +49,7 @@ public class HeaterController {
         }
         return new HeaterDto(heater);
     }
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}/delete")
     public void delete(@PathVariable Long id) {
         heaterdao.deleteById(id);
     }

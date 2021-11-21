@@ -13,4 +13,6 @@ public interface RoomDao extends JpaRepository<Room, Long> {
     @Modifying
     @Query("delete from Room r where r.building.id =:id")
     void deleteByBuilding(@Param("id") Long id);
+    @Query("select r.id from Room r where r.building.id = :id")
+    List<Long> findIdByBuilding(@Param("id") Long id);
 }
