@@ -51,6 +51,11 @@ public class BuildingController {
 
     @DeleteMapping(path="/{id}/delete")
     public void delete(@PathVariable Long id) {
+        List<Long> idRooms = roomDao.findIdByBuilding(id);
+        for (Long idRoom:idRooms){
+            windowdao.deleteByRoom(idRoom);
+            heaterdao.deleteByRoom(idRoom);
+        }
         roomDao.deleteByBuilding(id);
         buildingdao.deleteById(id);
     }
