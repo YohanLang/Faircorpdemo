@@ -51,7 +51,7 @@ public class RoomController {
         return heaterDao.findByRoom(id).stream().map(HeaterDto::new).collect(Collectors.toList());
     }
 
-    @PostMapping
+    @PostMapping(path = "/create")
     public RoomDto create(@RequestBody RoomDto dto){
         Building building = buildingDao.getById(dto.getBuildingId());
         Room room = null;
