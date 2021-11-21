@@ -11,7 +11,9 @@ public class RoomDto {
     private Long buildingId;
     private String buildingName;
 
-    public RoomDto(){
+    public RoomDto() {
+    }
+    public RoomDto(Long aLong) {
     }
     public RoomDto(Room room){
         this.id = room.getId();
@@ -22,6 +24,8 @@ public class RoomDto {
         this.buildingId = room.getBuilding().getId();
         this.buildingName = room.getBuilding().getName();
     }
+
+
 
     public Long getId() {
         return id;
