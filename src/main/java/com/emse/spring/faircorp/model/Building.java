@@ -1,8 +1,10 @@
 package com.emse.spring.faircorp.model;
+
 import javax.persistence.*;
 import java.util.Set;
+
 @Entity
-@Table(name="BUILDING")
+@Table(name = "BUILDING")
 public class Building {
     @Id
     @GeneratedValue
@@ -11,26 +13,36 @@ public class Building {
     @Column(nullable = false)
     private String name;
 
-    @Column(name="OUTSIDETEMPERATURE")
+    @Column(name = "OUTSIDETEMPERATURE")
     private Double outsideTemperature;
 
-    @OneToMany(mappedBy="building")
+    @OneToMany(mappedBy = "building")
     private Set<Room> room;
 
-    public Building(){
-    }
-    public Building(String name,double outsideTemperature){
-        this.name=name;
-        this.outsideTemperature=outsideTemperature;
+    public Building() {
     }
 
-    public Long getId() {return Id;}
+    public Building(String name, double outsideTemperature) {
+        this.name = name;
+        this.outsideTemperature = outsideTemperature;
+    }
 
-    public void setId(Long id){ Id=id;}
+    public Long getId() {
+        return Id;
+    }
 
-    public double getOutsideTemperature() {return outsideTemperature;}
+    public void setId(Long id) {
+        Id = id;
+    }
 
-    public void setOutsideTemperature(double outsideTemperature){this.outsideTemperature=outsideTemperature;}
+    public double getOutsideTemperature() {
+        return outsideTemperature;
+    }
+
+    public void setOutsideTemperature(double outsideTemperature) {
+        this.outsideTemperature = outsideTemperature;
+    }
+
     public String getName() {
         return name;
     }
@@ -38,6 +50,7 @@ public class Building {
     public void setName(String name) {
         this.name = name;
     }
+
     public Set<Room> getRoom() {
         return room;
     }

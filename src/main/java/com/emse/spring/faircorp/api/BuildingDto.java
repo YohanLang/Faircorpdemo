@@ -1,18 +1,12 @@
 package com.emse.spring.faircorp.api;
 
-import com.emse.spring.faircorp.model.Heater;
 import com.emse.spring.faircorp.model.Building;
-import com.emse.spring.faircorp.model.Window;
-import com.emse.spring.faircorp.model.WindowsStatus;
 
-import java.util.Set;
-
-public  class BuildingDto {
+public class BuildingDto {
     private Long id;
     private String name;
 
     private Double outsideTemperature;
-
 
 
     public BuildingDto() {
@@ -22,7 +16,7 @@ public  class BuildingDto {
         this.id = building.getId();
         this.name = building.getName();
 
-        this.outsideTemperature=building.getOutsideTemperature();
+        this.outsideTemperature = building.getOutsideTemperature();
 
     }
 
@@ -47,5 +41,6 @@ public  class BuildingDto {
     }
 
     public void setOutsideTemperature(double outsideTemperature) {
-        this.outsideTemperature= outsideTemperature;
-    }}
+        this.outsideTemperature = outsideTemperature;
+    }
+}

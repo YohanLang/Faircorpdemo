@@ -15,6 +15,7 @@ public interface WindowDao extends JpaRepository<Window, Long> {
 
     @Query("select w from Window w where w.room.id = :id")
     List<Window> findByRoom(@Param("id") Long id);
+
     @Modifying
     @Query("delete from Window w where w.room.id = :id")
     void deleteByRoom(@Param("id") Long id);

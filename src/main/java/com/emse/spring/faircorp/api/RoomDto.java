@@ -15,7 +15,7 @@ public class RoomDto {
     }
 
 
-    public RoomDto(Room room){
+    public RoomDto(Room room) {
         this.id = room.getId();
         this.currentTemperature = room.getCurrentTemperature();
         this.floor = room.getFloor();
@@ -24,8 +24,6 @@ public class RoomDto {
         this.buildingId = room.getBuilding().getId();
         this.buildingName = room.getBuilding().getName();
     }
-
-
 
 
     public Long getId() {

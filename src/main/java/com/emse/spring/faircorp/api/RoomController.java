@@ -5,9 +5,6 @@ import com.emse.spring.faircorp.dao.BuildingDao;
 import com.emse.spring.faircorp.dao.HeaterDao;
 import com.emse.spring.faircorp.dao.RoomDao;
 import com.emse.spring.faircorp.dao.WindowDao;
-import com.emse.spring.faircorp.api.HeaterDto;
-import com.emse.spring.faircorp.api.RoomDto;
-import com.emse.spring.faircorp.api.WindowDto;
 import com.emse.spring.faircorp.model.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,16 +40,17 @@ public class RoomController {
     }
 
     @GetMapping(path = "/{id}/windows")
-    public List<WindowDto> findWindowsByRoom(@PathVariable Long id){
+    public List<WindowDto> findWindowsByRoom(@PathVariable Long id) {
         return windowDao.findByRoom(id).stream().map(WindowDto::new).collect(Collectors.toList());
     }
+
     @GetMapping(path = "/{id}/heaters")
-    public List<HeaterDto> findHeatersByRoom(@PathVariable Long id){
+    public List<HeaterDto> findHeatersByRoom(@PathVariable Long id) {
         return heaterDao.findByRoom(id).stream().map(HeaterDto::new).collect(Collectors.toList());
     }
 
     @PostMapping(path = "/create")
-    public RoomDto create(@RequestBody RoomDto dto){
+    public RoomDto create(@RequestBody RoomDto dto) {
         Building building = buildingDao.getById(dto.getBuildingId());
         Room room = null;
 

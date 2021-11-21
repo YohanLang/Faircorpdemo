@@ -3,7 +3,7 @@ package com.emse.spring.faircorp.api;
 import com.emse.spring.faircorp.model.Window;
 import com.emse.spring.faircorp.model.WindowsStatus;
 
-public  class WindowDto {
+public class WindowDto {
     private Long id;
     private String name;
     private WindowsStatus windowStatus;

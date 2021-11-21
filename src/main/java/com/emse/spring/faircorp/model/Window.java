@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 
 @Entity    // (1)
-@Table(name="RWINDOW")// (2)
+@Table(name = "RWINDOW")// (2)
 public class Window {
     @Id// (3)
     @GeneratedValue
