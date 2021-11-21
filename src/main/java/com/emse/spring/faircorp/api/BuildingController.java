@@ -49,7 +49,7 @@ public class BuildingController {
         return new BuildingDto(building);
     }
 
-    @DeleteMapping(path="/{id}")
+    @DeleteMapping(path="/{id}/delete")
     public void delete(@PathVariable Long id) {
         roomDao.deleteByBuilding(id);
         buildingdao.deleteById(id);

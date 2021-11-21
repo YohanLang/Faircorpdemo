@@ -12,7 +12,7 @@ public  class BuildingDto {
     private String name;
 
     private Double outsideTemperature;
-    private Set<Long> roomId;
+
 
 
     public BuildingDto() {
