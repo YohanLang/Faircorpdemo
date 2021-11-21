@@ -35,7 +35,7 @@ public class HeaterController {
         heater.setStatus(heater.getStatus() == HeaterStatus.ON ? HeaterStatus.OFF : HeaterStatus.ON);
         return new HeaterDto(heater);
     }
-    @PostMapping
+    @PostMapping(path = "/create")
     public HeaterDto create(@RequestBody HeaterDto dto) {
         Room room = roomdao.getById(dto.getRoomId());
         Heater heater = null;
